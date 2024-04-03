@@ -7,10 +7,12 @@ registries:
     password: ${{ secrets.JFROG_PASSWORD }}
 updates:
   - package-ecosystem: "npm"
+    registries:
+      - npm-jfrog
     directory: "/"
     schedule:
       interval: "daily"
-      time: "13:00"
+      time: "15:30"
       timezone: "Europe/London"
     open-pull-requests-limit: 10
     groups:
@@ -21,6 +23,3 @@ updates:
     ignore:
       - dependency-name: "*"
         update-types: [ "version-update:semver-major" ]
-    labels:
-      - "npm"
-      - "dependencies"
